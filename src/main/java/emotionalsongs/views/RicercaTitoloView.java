@@ -14,6 +14,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @PageTitle("Ricerca")
 @Route(value = "ricerca-titolo", layout = MainLayout.class)
@@ -26,12 +27,12 @@ public class RicercaTitoloView extends VerticalLayout {
     H3 titoloPagina;
     TextField titoloDaCercare;
     Button searchButton;
+    @Autowired
     CanzoneService canzoneService;
     Grid<Canzone> grid = new Grid<>(Canzone.class);
 
 
-    public RicercaTitoloView(CanzoneService canzoneService) {
-        //canzoneService = new CanzoneService(songRepository);
+    public RicercaTitoloView() {
         setSpacing(true);
         setSizeFull();
         layoutTitolo = new HorizontalLayout();
@@ -65,7 +66,7 @@ public class RicercaTitoloView extends VerticalLayout {
     }
 
     private void updateSongList() {
-        //grid.setItems(canzoneService.findAll());
+        grid.setItems(canzoneService.findAllCanzoni(null));
     }
 
     private void search() {
