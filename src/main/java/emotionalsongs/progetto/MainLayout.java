@@ -1,4 +1,4 @@
-package emotionalsongs.views;
+package emotionalsongs.progetto;
 
 
 import com.vaadin.flow.component.UI;

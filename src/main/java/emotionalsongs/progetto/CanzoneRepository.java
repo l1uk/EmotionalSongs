@@ -1,4 +1,4 @@
-package emotionalsongs.views;
+package emotionalsongs.progetto;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,4 +13,5 @@ public interface CanzoneRepository extends JpaRepository<Canzone, Integer> {
             "where lower(c.titolo) like lower(concat('%', :searchTerm, '%')) " +
             "or lower(c.artista) like lower(concat('%', :searchTerm, '%'))")
     List<Canzone> search(@Param("searchTerm") String searchTerm);
+
 }
