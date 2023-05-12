@@ -20,8 +20,6 @@ import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.router.PageTitle;
 import emotionalsongs.components.appnav.AppNav;
 import emotionalsongs.components.appnav.AppNavItem;
-import emotionalsongs.views.backend.CanzoneRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 //import org.vaadin.lineawesome.LineAwesomeIcon;
 
 /**
@@ -38,10 +36,8 @@ public class MainLayout extends AppLayout {
     Button exitButton;
     Dialog dialog;
 
-    private final CanzoneRepository songRepository;
 
-    public MainLayout(@Autowired CanzoneRepository songRepository) {
-        this.songRepository = songRepository;
+    public MainLayout() {
         top = new HorizontalLayout();
         top.setWidthFull();
         top.setMargin(true);

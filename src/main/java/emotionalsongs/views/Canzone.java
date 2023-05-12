@@ -1,4 +1,4 @@
-package emotionalsongs.views.backend;
+package emotionalsongs.views;
 
 import lombok.*;
 

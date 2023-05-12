@@ -1,7 +1,5 @@
 package emotionalsongs.views;
 
-import emotionalsongs.views.backend.Canzone;
-import emotionalsongs.views.backend.CanzoneService;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.grid.Grid;
@@ -27,12 +25,11 @@ public class RicercaTitoloView extends VerticalLayout {
     H3 titoloPagina;
     TextField titoloDaCercare;
     Button searchButton;
-    @Autowired
-    CanzoneService canzoneService;
     Grid<Canzone> grid = new Grid<>(Canzone.class);
 
 
-    public RicercaTitoloView() {
+    public RicercaTitoloView(@Autowired CanzoneService canzoneService) {
+        canzoneService.findAllCanzoni("");
         setSpacing(true);
         setSizeFull();
         layoutTitolo = new HorizontalLayout();
@@ -66,7 +63,7 @@ public class RicercaTitoloView extends VerticalLayout {
     }
 
     private void updateSongList() {
-        grid.setItems(canzoneService.findAllCanzoni(null));
+        //grid.setItems(canzoneService.findAllCanzoni(null));
     }
 
     private void search() {

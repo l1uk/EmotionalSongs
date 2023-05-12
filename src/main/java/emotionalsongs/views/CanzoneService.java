@@ -1,4 +1,4 @@
-package emotionalsongs.views.backend;
+package emotionalsongs.views;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,12 +7,12 @@ import java.util.List;
 
 @Service
 public class CanzoneService {
-    @Autowired
     private final CanzoneRepository songRepository;
 
-    public CanzoneService(CanzoneRepository songRepository) {
+    public CanzoneService(@Autowired CanzoneRepository songRepository) {
         this.songRepository = songRepository;
     }
+
 
     public long countCanzoni() {
         return songRepository.count();
