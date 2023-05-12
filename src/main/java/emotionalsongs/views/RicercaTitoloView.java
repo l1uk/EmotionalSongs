@@ -27,9 +27,10 @@ public class RicercaTitoloView extends VerticalLayout {
     Button searchButton;
     Grid<Canzone> grid = new Grid<>(Canzone.class);
 
+    private final CanzoneService canzoneService;
 
     public RicercaTitoloView(@Autowired CanzoneService canzoneService) {
-        canzoneService.findAllCanzoni("");
+        this.canzoneService = canzoneService;
         setSpacing(true);
         setSizeFull();
         layoutTitolo = new HorizontalLayout();
@@ -63,7 +64,7 @@ public class RicercaTitoloView extends VerticalLayout {
     }
 
     private void updateSongList() {
-        //grid.setItems(canzoneService.findAllCanzoni(null));
+        grid.setItems(canzoneService.findAllCanzoni(null));
     }
 
     private void search() {
